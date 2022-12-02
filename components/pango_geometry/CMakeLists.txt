@@ -11,7 +11,7 @@ PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/src/geometry_ply.cpp
 )
 
-target_link_libraries(${COMPONENT} pango_core pango_image tinyobj Eigen3::Eigen)
+target_link_libraries(${COMPONENT} pango_core pango_image tinyobj)
 target_include_directories(${COMPONENT} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
     $<INSTALL_INTERFACE:include>

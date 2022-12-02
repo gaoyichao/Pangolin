@@ -18,11 +18,12 @@ PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}/fonts.cpp
 )
 
-find_package (Eigen3 REQUIRED QUIET)
+SET(EIGEN3_INCLUDE_DIR $ENV{HOME}/local/include/eigen3/)
 message(STATUS "Found Eigen: '${EIGEN3_INCLUDE_DIRS}'")
 target_compile_definitions(${COMPONENT} PUBLIC HAVE_EIGEN HAVE_GLEW)
+include_directories(${EIGEN3_INCLUDE_DIRS})
 
-target_link_libraries(${COMPONENT} PUBLIC pango_core pango_image Eigen3::Eigen)
+target_link_libraries(${COMPONENT} PUBLIC pango_core pango_image)
 target_include_directories(${COMPONENT} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
     $<INSTALL_INTERFACE:include>
